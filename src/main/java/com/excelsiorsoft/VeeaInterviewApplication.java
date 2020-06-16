@@ -10,7 +10,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.repository.CrudRepository;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @SpringBootApplication
 public class VeeaInterviewApplication {
@@ -32,6 +34,8 @@ public class VeeaInterviewApplication {
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 class Greeting{
 	
 	public Greeting(String greeting) {
