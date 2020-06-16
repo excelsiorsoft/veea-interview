@@ -59,5 +59,9 @@ public class PersonageService {
     public void save(Personage personage) {
     	personageRepository.save(personage);
     }
+    
+    public List<Personage> showAllPersonages(){
+    	return (List<Personage>) personageRepository.findAll();
+    }
 
 }
