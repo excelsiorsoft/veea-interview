@@ -21,6 +21,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
 import org.supercsv.cellprocessor.CellProcessorAdaptor;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.constraint.StrMinMax;
@@ -128,26 +129,30 @@ public class SuperCsvExperiments {
 	public void read1stFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
 		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(1));
-		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		List<Personage> records = csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		Assert.notEmpty(records,"Expect records");
 	}
 	
 	@Test
 	public void read2ndFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
 		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(2));
-		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		List<Personage> records = csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		Assert.notEmpty(records,"Expect records");
 	}
 	
 	@Test
 	public void read3rdFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
 		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(3));
-		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		List<Personage> records = csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		Assert.notEmpty(records,"Expect records");
 	}
 	
 	@Test
 	public void read4thFileType() throws Exception {
 		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(4));
-		csvProcessor.process(new File(getClass().getClassLoader().getResource(mappings._1).getFile()), mappings._2);
+		List<Personage> records = csvProcessor.process(new File(getClass().getClassLoader().getResource(mappings._1).getFile()), mappings._2);
+		Assert.notEmpty(records,"Expect records");
 	}
 }
