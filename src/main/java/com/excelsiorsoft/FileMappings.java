@@ -54,7 +54,7 @@ public final class FileMappings {
 	}};
 	
 	
-	public static Map<Integer, Tuple2<String, Map<String, Object>>> fileToSchemaRegistry = new HashMap<Integer, Tuple2<String, Map<String, Object>>>() {{
+	public static final Map<Integer, Tuple2<String, Map<String, Object>>> fileToSchemaRegistry = new HashMap<Integer, Tuple2<String, Map<String, Object>>>() {{
 		put(new Integer(1), Tuple.of("1stRecordType", firstSchema));
 		put(new Integer(2), Tuple.of("2ndRecordType", secondSchema));
 		put(new Integer(3), Tuple.of("3rdRecordType", thirdSchema));

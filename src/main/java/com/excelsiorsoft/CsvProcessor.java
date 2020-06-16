@@ -61,13 +61,13 @@ public class CsvProcessor {
 		}
 	}
 
-	public List<Personage> process(File filename, Map<String, Object> schemaType) throws Exception {
+	public List<Personage> process(final File filename, final Map<String, Object> schemaType) throws Exception {
 
 		ICsvListReader listReader = null;
         try {
                 listReader = new CsvListReader(new FileReader(filename), CsvPreference.STANDARD_PREFERENCE);
                 
-                List<Personage> pp = new ArrayList<Personage>();
+                final List<Personage> pp = new ArrayList<Personage>();
                 while( (listReader.read()) != null ) {
                 	
                 	final CellProcessor[] processors =  schemaType.values().toArray(new CellProcessor[schemaType.values().size()]);
@@ -78,8 +78,8 @@ public class CsvProcessor {
                 	
                 	buildRecords(pp, columnValues, columnNames);
                 	
-				System.out.println(String.format("lineNo=%s, rowNo=%s, columns=%s, columnList=%s",
-						listReader.getLineNumber(), listReader.getRowNumber(), columnValues.size(), columnValues));
+//				System.out.println(String.format("lineNo=%s, rowNo=%s, columns=%s, columnList=%s",
+//						listReader.getLineNumber(), listReader.getRowNumber(), columnValues.size(), columnValues));
 				
                 }
                 log.info("Records created {}: {}", pp.size(), pp);
@@ -92,7 +92,7 @@ public class CsvProcessor {
 }
 	}
 
-	private /*List<Personage>*/ void buildRecords(List<Personage> pp, final List<Object> columnValues, final Set<String> columnNames) {
+	private  void buildRecords(List<Personage> pp, final List<Object> columnValues, final Set<String> columnNames) {
 		final Personage p = new Personage();
 		zip(columnNames, columnValues, (v1, v2) -> {
 			
@@ -105,7 +105,6 @@ public class CsvProcessor {
 			
 		});
 		pp.add(p);
-		//return pp;
 	}
 
 	private void handleRecordErrors(final ICsvListReader listReader) {
@@ -119,9 +118,9 @@ public class CsvProcessor {
 		}
 	}
 	
-	private static <T,U> void zip(Collection<T> ct, Collection<U> cu, BiConsumer<T, U> consumer) {
-	    Iterator<T> it = ct.iterator();
-	    Iterator<U> iu = cu.iterator();
+	private static <T,U> void zip(final Collection<T> ct, final Collection<U> cu, final BiConsumer<T, U> consumer) {
+	    final Iterator<T> it = ct.iterator();
+	    final Iterator<U> iu = cu.iterator();
 	    while (it.hasNext() && iu.hasNext()) {
 	        consumer.accept(it.next(), iu.next());
 	    }
