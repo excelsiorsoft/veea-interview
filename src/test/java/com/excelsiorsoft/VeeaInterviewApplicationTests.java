@@ -1,7 +1,7 @@
 package com.excelsiorsoft;
 
 import static com.excelsiorsoft.FileMappings.fileToSchemaRegistry;
-import static com.excelsiorsoft.VeeaInterviewApplication.getRandomInteger;
+import static com.excelsiorsoft.PersonageService.getRandomInteger;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
