@@ -3,6 +3,7 @@
  */
 package com.excelsiorsoft;
 
+import java.io.File;
 import java.io.StringWriter;
 
 /**
@@ -15,6 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.supercsv.cellprocessor.CellProcessorAdaptor;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.constraint.StrMinMax;
@@ -28,7 +31,11 @@ import org.supercsv.util.CsvContext;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-public class SuperCSVExperiments {
+@SpringBootTest
+public class SuperCsvExperiments {
+	
+	@Autowired
+	private CsvProcessor csvProcessor;
 	
 	@Data
 	@AllArgsConstructor
@@ -112,5 +119,29 @@ public class SuperCSVExperiments {
 
 	    //}
 
+	}
+	
+	@Test
+	public void read1stFileType() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		csvProcessor.process(new File(classLoader.getResource("1stRecordType").getFile()), FileMappings.firstType);
+	}
+	
+	@Test
+	public void read2ndFileType() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		csvProcessor.process(new File(classLoader.getResource("2ndRecordType").getFile()), FileMappings.secondType);
+	}
+	
+	@Test
+	public void read3rdFileType() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		csvProcessor.process(new File(classLoader.getResource("3rdRecordType").getFile()), FileMappings.thirdType);
+	}
+	
+	@Test
+	public void read4thFileType() throws Exception {
+		ClassLoader classLoader = getClass().getClassLoader();
+		csvProcessor.process(new File(classLoader.getResource("4thRecordType").getFile()), FileMappings.fourthType);
 	}
 }
