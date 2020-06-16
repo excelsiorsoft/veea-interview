@@ -61,7 +61,7 @@ public class CsvProcessor {
 		}
 	}
 
-	public void process(File filename, Map<String, Object> mappingType) throws Exception {
+	public List<Personage> process(File filename, Map<String, Object> mappingType) throws Exception {
 
 		ICsvListReader listReader = null;
         try {
@@ -83,6 +83,7 @@ public class CsvProcessor {
 				
                 }
                 log.info("Records created {}: {}", pp.size(), pp);
+                return pp;
                 
         }finally {
             if( listReader != null ) {
@@ -91,7 +92,7 @@ public class CsvProcessor {
 }
 	}
 
-	private void buildRecords(List<Personage> pp, final List<Object> columnValues, final Set<String> columnNames) {
+	private /*List<Personage>*/ void buildRecords(List<Personage> pp, final List<Object> columnValues, final Set<String> columnNames) {
 		final Personage p = new Personage();
 		zip(columnNames, columnValues, (v1, v2) -> {
 			
@@ -104,6 +105,7 @@ public class CsvProcessor {
 			
 		});
 		pp.add(p);
+		//return pp;
 	}
 
 	private void handleRecordErrors(final ICsvListReader listReader) {

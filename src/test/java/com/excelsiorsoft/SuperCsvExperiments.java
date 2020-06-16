@@ -147,8 +147,7 @@ public class SuperCsvExperiments {
 	
 	@Test
 	public void read4thFileType() throws Exception {
-		ClassLoader classLoader = getClass().getClassLoader();
 		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(4));
-		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
+		csvProcessor.process(new File(getClass().getClassLoader().getResource(mappings._1).getFile()), mappings._2);
 	}
 }
