@@ -32,7 +32,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @SpringBootTest
-public class SuperCsvExperimentsNew {
+public class SuperCsvExperiments {
 	
 	@Autowired
 	private CsvProcessor csvProcessor;
