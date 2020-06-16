@@ -76,7 +76,6 @@ public class SuperCsvExperiments {
 
 	     final String[] HEADER = { "name", "age" };
 
-	    //public static void main(String[] args) throws Exception {
 
 	        final StringWriter stringWriter = new StringWriter();
 	        ICsvBeanWriter beanWriter = null;
