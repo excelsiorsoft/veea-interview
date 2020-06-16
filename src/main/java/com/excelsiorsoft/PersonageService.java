@@ -56,12 +56,16 @@ public class PersonageService {
 		processedRecords.forEach(record -> personageRepository.save(record));
     }
     
-    public void save(Personage personage) {
-    	personageRepository.save(personage);
+    public Personage save(Personage personage) {
+    	return personageRepository.save(personage);
     }
     
     public List<Personage> showAllPersonages(){
     	return (List<Personage>) personageRepository.findAll();
+    }
+    
+    public void deleteAllPersonages() {
+    	personageRepository.deleteAll();
     }
 
 }
