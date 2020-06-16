@@ -37,35 +37,35 @@ public class SuperCsvExperiments {
 	@Autowired
 	private CsvProcessor csvProcessor;
 	
-	@Data
-	@AllArgsConstructor
-	public static class Person{
-		String name;
-		Integer age;
-	}
+//	@Data
+//	@AllArgsConstructor
+//	public static class Person{
+//		String name;
+//		Integer age;
+//	}
 
-	public static class SuppressException extends CellProcessorAdaptor {
-
-		public static List<SuperCsvCellProcessorException> SUPPRESSED_EXCEPTIONS = new ArrayList<SuperCsvCellProcessorException>();
-
-		public SuppressException(CellProcessor next) {
-			super(next);
-		}
-
-		public Object execute(Object value, CsvContext context) {
-			try {
-				// attempt to execute the next processor
-				return next.execute(value, context);
-
-			} catch (SuperCsvCellProcessorException e) {
-				// save the exception
-				SUPPRESSED_EXCEPTIONS.add(e);
-
-				// and suppress it (null is written as "")
-				return null;
-			}
-		}
-	}
+//	public static class SuppressException extends CellProcessorAdaptor {
+//
+//		public static List<SuperCsvCellProcessorException> SUPPRESSED_EXCEPTIONS = new ArrayList<SuperCsvCellProcessorException>();
+//
+//		public SuppressException(CellProcessor next) {
+//			super(next);
+//		}
+//
+//		public Object execute(Object value, CsvContext context) {
+//			try {
+//				// attempt to execute the next processor
+//				return next.execute(value, context);
+//
+//			} catch (SuperCsvCellProcessorException e) {
+//				// save the exception
+//				SUPPRESSED_EXCEPTIONS.add(e);
+//
+//				// and suppress it (null is written as "")
+//				return null;
+//			}
+//		}
+//	}
 
 	
 //	@Test
