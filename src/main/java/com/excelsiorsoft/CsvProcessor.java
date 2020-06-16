@@ -61,7 +61,7 @@ public class CsvProcessor {
 		}
 	}
 
-	public List<Personage> process(File filename, Map<String, Object> mappingType) throws Exception {
+	public List<Personage> process(File filename, Map<String, Object> schemaType) throws Exception {
 
 		ICsvListReader listReader = null;
         try {
@@ -70,9 +70,9 @@ public class CsvProcessor {
                 List<Personage> pp = new ArrayList<Personage>();
                 while( (listReader.read()) != null ) {
                 	
-                	final CellProcessor[] processors =  mappingType.values().toArray(new CellProcessor[mappingType.values().size()]);
+                	final CellProcessor[] processors =  schemaType.values().toArray(new CellProcessor[schemaType.values().size()]);
                 	final List<Object> columnValues = listReader.executeProcessors(processors);
-                	final Set<String> columnNames = mappingType.keySet();
+                	final Set<String> columnNames = schemaType.keySet();
                 	
                 	handleRecordErrors(listReader);
                 	

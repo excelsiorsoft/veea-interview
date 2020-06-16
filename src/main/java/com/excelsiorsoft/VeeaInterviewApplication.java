@@ -3,6 +3,7 @@ package com.excelsiorsoft;
 import static com.excelsiorsoft.FileMappings.fileToSchemaRegistry;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
@@ -43,13 +45,18 @@ public class VeeaInterviewApplication {
 	
 	@Bean
 	ApplicationRunner applicationRunner(GreetingRepository greetingRepository) {
+		
 		return args -> {
 			/*
 			 * greetingRepository.save(new Greeting("Hello")); greetingRepository.save(new
 			 * Greeting("Hi"));
 			 */
 			Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(getRandomInteger(0, 4));
-			List<Personage> processedRecords = csvProcessor.process(new File(getClass().getClassLoader().getResource(mappings._1).getFile()), mappings._2);
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(mappings._1);
+			File tmpFile = File.createTempFile("data", ".dat");
+            tmpFile.deleteOnExit();
+            FileUtils.copyInputStreamToFile(inputStream, tmpFile);
+			List<Personage> processedRecords = csvProcessor.process(tmpFile, mappings._2);
 			log.info("To insert: {}", processedRecords);
 			processedRecords.forEach(record -> personageRepository.save(record));
 		};
