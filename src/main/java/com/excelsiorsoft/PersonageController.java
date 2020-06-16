@@ -46,6 +46,7 @@ public class PersonageController {
 	@PostMapping("/personages/personage")
 	public ResponseEntity<Personage> addPersonage(@RequestBody Personage personage){
 		ResponseEntity<Personage> result = null;
+		personageService.deleteAllPersonages();
 		Personage newPersonage = personageService.save(personage);
         try {
 			result = ResponseEntity.created(new URI("/personages/personage/" + newPersonage.getId()))
