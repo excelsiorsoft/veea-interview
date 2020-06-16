@@ -3,6 +3,8 @@
  */
 package com.excelsiorsoft;
 
+import static com.excelsiorsoft.FileMappings.fileToSchemaRegistry;
+
 import java.io.File;
 import java.io.StringWriter;
 
@@ -14,6 +16,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,7 @@ import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 import org.supercsv.util.CsvContext;
 
+import io.vavr.Tuple2;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -123,24 +127,28 @@ public class SuperCsvExperiments {
 	@Test
 	public void read1stFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		csvProcessor.process(new File(classLoader.getResource("1stRecordType").getFile()), FileMappings.firstType);
+		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(1));
+		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
 	}
 	
 	@Test
 	public void read2ndFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		csvProcessor.process(new File(classLoader.getResource("2ndRecordType").getFile()), FileMappings.secondType);
+		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(2));
+		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
 	}
 	
 	@Test
 	public void read3rdFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		csvProcessor.process(new File(classLoader.getResource("3rdRecordType").getFile()), FileMappings.thirdType);
+		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(3));
+		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
 	}
 	
 	@Test
 	public void read4thFileType() throws Exception {
 		ClassLoader classLoader = getClass().getClassLoader();
-		csvProcessor.process(new File(classLoader.getResource("4thRecordType").getFile()), FileMappings.fourthType);
+		Tuple2<String, Map<String, Object>> mappings = fileToSchemaRegistry.get(Integer.valueOf(4));
+		csvProcessor.process(new File(classLoader.getResource(mappings._1).getFile()), mappings._2);
 	}
 }

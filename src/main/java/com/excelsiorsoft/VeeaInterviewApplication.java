@@ -22,6 +22,10 @@ public class VeeaInterviewApplication {
 		SpringApplication.run(VeeaInterviewApplication.class, args);
 	}
 	
+	protected static Integer getRandomInteger(int maximum, int minimum) {
+		return new Integer(((int) (Math.random() * (maximum - minimum))) + minimum);
+	}
+	
 	@Bean
 	ApplicationRunner applicationRunner(GreetingRepository greetingRepository) {
 		return args -> {
