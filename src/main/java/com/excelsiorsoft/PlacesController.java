@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.log4j.Log4j2;
@@ -28,10 +29,10 @@ public class PlacesController {
 	
 		
 	@GetMapping("/places")
-	ResponseEntity<Places> externalPlaces(){
-		String lattitude = "";
-		String longitude = "";
-		return ResponseEntity.ok(placesService.obtainVenues());
+	ResponseEntity<Places> externalPlaces(@RequestParam("lat") String lat, @RequestParam("lon") String lon){
+		String lattitude = lat;
+		String longitude = lon;
+		return ResponseEntity.ok(placesService.obtainVenues(lattitude, longitude));
 	}
 	
 
