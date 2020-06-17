@@ -28,8 +28,8 @@ public class PlacesController {
 	
 		
 	@GetMapping("/places")
-	Places externalPlaces(){
-		return placesService.obtainVenues();
+	ResponseEntity<Places> externalPlaces(){
+		return ResponseEntity.ok(placesService.obtainVenues());
 	}
 	
 
