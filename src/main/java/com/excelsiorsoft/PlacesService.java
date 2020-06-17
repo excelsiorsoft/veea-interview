@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.excelsiorsoft.Places.PlacesBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jayway.jsonpath.JsonPath;
 
@@ -38,7 +39,7 @@ public class PlacesService {
 		
 		log.info("JsonPath list of venues: {}", venues);
 		
-		//List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
-		return null;
+		return new PlacesBuilder().places(venues).build();
+		
 	}
 }
