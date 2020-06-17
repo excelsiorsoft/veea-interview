@@ -39,7 +39,11 @@ public class PlacesService {
 		
 		log.info("JsonPath list of venues: {}", venues);
 		
-		return new PlacesBuilder().places(venues).build();
+		Places result = new PlacesBuilder().places(venues).build();
+		
+		log.info("Built Places dto: {}", result);
+		
+		return result;
 		
 	}
 }
