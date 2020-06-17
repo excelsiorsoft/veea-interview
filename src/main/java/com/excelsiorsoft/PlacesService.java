@@ -23,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 @Service
 public class PlacesService {
 	
-	@Value("foursquare.venues.query")
+	@Value("${foursquare.venues.query}")
 	private String venuesQuery;
 	
 	public Places obtainVenues() {
