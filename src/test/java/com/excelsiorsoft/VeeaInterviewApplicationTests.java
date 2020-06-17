@@ -1,7 +1,7 @@
 package com.excelsiorsoft;
 
 import static com.excelsiorsoft.FileMappings.fileToSchemaRegistry;
-import static com.excelsiorsoft.PersonageService.getRandomInteger;
+import static com.excelsiorsoft.service.PersonageService.getRandomInteger;
 
 import java.util.Map;
 

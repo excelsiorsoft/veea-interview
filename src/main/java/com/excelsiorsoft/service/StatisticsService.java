@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.service;
 
 import static io.micrometer.core.instrument.util.StringUtils.isBlank;
 
@@ -13,6 +13,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+
+import com.excelsiorsoft.PersonageRepository;
+import com.excelsiorsoft.domain.Personage;
+import com.excelsiorsoft.domain.StatisticsBucket;
 
 import io.micrometer.core.instrument.util.StringUtils;
 import io.vavr.Tuple2;

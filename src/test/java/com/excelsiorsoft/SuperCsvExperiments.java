@@ -32,6 +32,9 @@ import org.supercsv.io.ICsvBeanWriter;
 import org.supercsv.prefs.CsvPreference;
 import org.supercsv.util.CsvContext;
 
+import com.excelsiorsoft.domain.Personage;
+import com.excelsiorsoft.service.CsvProcessor;
+
 import io.vavr.Tuple2;
 import lombok.AllArgsConstructor;
 import lombok.Data;

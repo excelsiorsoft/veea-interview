@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.controller;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.excelsiorsoft.domain.StatisticsBucket;
+import com.excelsiorsoft.service.StatisticsService;
 
 import lombok.extern.log4j.Log4j2;
 

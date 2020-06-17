@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.service;
 
 import java.io.File;
 import java.io.FileReader;
@@ -23,6 +23,8 @@ import org.supercsv.io.CsvListReader;
 import org.supercsv.io.ICsvListReader;
 import org.supercsv.prefs.CsvPreference;
 import org.supercsv.util.CsvContext;
+
+import com.excelsiorsoft.domain.Personage;
 
 import lombok.extern.log4j.Log4j2;
 

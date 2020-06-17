@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.service;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
-import com.excelsiorsoft.Places.PlacesBuilder;
+import com.excelsiorsoft.domain.Places;
+import com.excelsiorsoft.domain.Places.PlacesBuilder;
 import com.jayway.jsonpath.JsonPath;
 
 import lombok.extern.log4j.Log4j2;
@@ -72,7 +73,7 @@ public class PlacesService {
 		
 		log.debug("JsonPath list of venues: {}", venues);
 		
-		Places result = new PlacesBuilder().places(venues).build();
+		Places result = Places.builder().places(venues).build();
 		
 		log.debug("Built Places dto: {}", result);
 		

@@ -1,9 +1,11 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.service;
 
 /**
+ * To be able to remotely restart the service once it's shut down by Heroku for inactivity
+ * 
  * @author Simeon
  *
  */

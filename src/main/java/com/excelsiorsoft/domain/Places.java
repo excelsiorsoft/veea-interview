@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.domain;
 
 import java.util.List;
 

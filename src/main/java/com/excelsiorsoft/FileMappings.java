@@ -10,7 +10,7 @@ import java.util.Map;
 import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.StrRegEx;
 
-import com.excelsiorsoft.CsvProcessor.SuppressException;
+import com.excelsiorsoft.service.CsvProcessor.SuppressException;
 
 import io.vavr.Tuple;
 import io.vavr.Tuple2;

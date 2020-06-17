@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.excelsiorsoft;
+package com.excelsiorsoft.service;
 
 import static com.excelsiorsoft.FileMappings.fileToSchemaRegistry;
 
@@ -17,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  */
 import org.springframework.stereotype.Service;
+
+import com.excelsiorsoft.PersonageRepository;
+import com.excelsiorsoft.domain.Personage;
 
 import io.vavr.Tuple2;
 import lombok.extern.log4j.Log4j2;
