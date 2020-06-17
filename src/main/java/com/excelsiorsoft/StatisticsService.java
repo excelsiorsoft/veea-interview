@@ -27,8 +27,10 @@ public class StatisticsService {
 	@Autowired
 	private PersonageRepository personageRepository;
 	
+
 	/**
-	 * @param input
+	 * @param input optional list of personages in 4 possible formats (as per req.), if <code>null</code> then persistent values are used
+	 * @param ext whether this is an extended statistics (with name list) or not
 	 * @return
 	 */
 	public Map<String, StatisticsBucket> buildStats(List<Personage> input, boolean ext) {
