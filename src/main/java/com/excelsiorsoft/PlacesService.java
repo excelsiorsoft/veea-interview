@@ -32,7 +32,7 @@ public class PlacesService {
 		log.info("FourSquare response: {}", response);
 		log.info("FourSquare response body: {}", response.getBody());
 		
-		String json = "...";
+		String json = response.getBody();
 
 		List<String> venues = JsonPath.read(json, "response.venues[*].name");	
 		
