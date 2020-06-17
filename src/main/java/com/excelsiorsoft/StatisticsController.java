@@ -6,6 +6,7 @@ package com.excelsiorsoft;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,14 +28,14 @@ public class StatisticsController {
 	
 	@GetMapping("/stats")
 	public ResponseEntity<Collection<StatisticsBucket>> getStats(){
-		return null;
-		
+		Map<String, StatisticsBucket> histogramExt = statisticsService.buildStats(null,false);
+		return ResponseEntity.ok(histogramExt.values());
 	}
 	
 	@GetMapping("/stats/ext")
 	public ResponseEntity<Collection<StatisticsBucket>> getStatsExt(){
-		Map<String, StatisticsBucket> histogram = statisticsService.buildStats(null);
-		return ResponseEntity.ok(histogram.values());
+		Map<String, StatisticsBucket> histogramExt = statisticsService.buildStats(null,true);
+		return ResponseEntity.ok(histogramExt.values());
 		
 	}
 

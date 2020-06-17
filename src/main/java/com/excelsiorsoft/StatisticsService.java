@@ -31,37 +31,56 @@ public class StatisticsService {
 	 * @param input
 	 * @return
 	 */
-	public Map<String, StatisticsBucket> buildStats(List<Personage> input) {
+	public Map<String, StatisticsBucket> buildStats(List<Personage> input, boolean ext) {
 		final List<Personage> subjects = (CollectionUtils.isEmpty(input))
 				? (List<Personage>) personageRepository.findAll()
 				: input;
 		final Map<String, StatisticsBucket> result = new HashMap<>();
 		for (Personage personage : subjects) {
-			processRecord(result, personage);
+			processRecord(result, personage, ext);
 		}
 		return result;
 
 	}
 	
-	private void processRecord(final Map<String,StatisticsBucket> context, final Personage record) {
+	private void processRecord(final Map<String,StatisticsBucket> context, final Personage record, boolean ext) {
 		
 		String color = record.getColor();
 		String fullName = isBlank(record.getFullName())?new StringBuilder(record.getFirstName()).append(" ").append(record.getLastName()).toString():record.getFullName();
 		if(context.containsKey(color)){
-			StatisticsBucket bucket = context.get(color);
-			int count = bucket.getCount();
-			List<String> names = bucket.getNames();
-			bucket.setCount(count+1);
-			names.add(fullName);
-			context.put(color, bucket);
+			if(ext) {
+				StatisticsBucket bucket = context.get(color);
+				int count = bucket.getCount();
+				List<String> names = bucket.getNames();
+				bucket.setCount(count+1);
+				names.add(fullName);
+				context.put(color, bucket);
+			}else {
+				StatisticsBucket bucket = context.get(color);
+				int count = bucket.getCount();
+				//List<String> names = bucket.getNames();
+				bucket.setCount(count+1);
+				//names.add(fullName);
+				context.put(color, bucket);
+			}
 		}else {
-			StatisticsBucket bucket = new StatisticsBucket();
-			bucket.setColor(color);
-			bucket.setCount(1);
-			List<String> names = new ArrayList<>();
-			names.add(fullName);
-			bucket.setNames(names);
-			context.put(color, bucket);
+			if(ext) {
+				StatisticsBucket bucket = new StatisticsBucket();
+				bucket.setColor(color);
+				bucket.setCount(1);
+				List<String> names = new ArrayList<>();
+				names.add(fullName);
+				bucket.setNames(names);
+				context.put(color, bucket);
+			}else {
+				StatisticsBucket bucket = new StatisticsBucket();
+				bucket.setColor(color);
+				bucket.setCount(1);
+				//List<String> names = new ArrayList<>();
+				//names.add(fullName);
+				//bucket.setNames(names);
+				context.put(color, bucket);
+			}
 		}
 	}
 
