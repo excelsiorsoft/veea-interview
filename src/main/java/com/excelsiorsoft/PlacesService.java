@@ -3,16 +3,16 @@
  */
 package com.excelsiorsoft;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.jsonpath.JsonPath;
 
 import lombok.extern.log4j.Log4j2;
-import net.thisptr.jackson.jq.BuiltinFunctionLoader;
-import net.thisptr.jackson.jq.Scope;
-import net.thisptr.jackson.jq.Versions;
 
 /**
  * @author Simeon
@@ -32,12 +32,11 @@ public class PlacesService {
 		log.info("FourSquare response: {}", response);
 		log.info("FourSquare response body: {}", response.getBody());
 		
-//		Scope rootScope = Scope.newEmptyScope();
-//		BuiltinFunctionLoader.getInstance().loadFunctions(Versions.JQ_1_5, rootScope);
-//		rootScope.addFunction(name, q);
+		String json = "...";
+
+		List<String> venues = JsonPath.read(json, "response.venues[*].name");	
 		
-		//JqLibrary library = ImmutableJqLibrary.of();
-		
+		log.info("JsonPath list of venues: {}", venues);
 		
 		//List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 		return null;
