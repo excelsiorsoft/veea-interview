@@ -24,6 +24,7 @@ public class PlacesService {
 		ResponseEntity<String> response = restTemplate.getForEntity(venuesSearchUrl, String.class);
 		
 		log.info("FourSquare response: {}", response);
+		log.info("FourSquare response body: {}", response.getBody());
 		//List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
 		return null;
 	}
