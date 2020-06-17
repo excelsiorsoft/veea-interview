@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
  * @author Simeon
  *
  */
-//@Data
+@Data
 //@AllArgsConstructor
 //@NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
