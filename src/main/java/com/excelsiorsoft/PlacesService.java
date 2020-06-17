@@ -10,6 +10,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 import org.springframework.web.client.RestTemplate;
 
 import com.excelsiorsoft.Places.PlacesBuilder;
@@ -37,19 +38,25 @@ public class PlacesService {
 	@Value("${foursquare.version}")
 	private String version;
 	
+
+	/**
+	 * Communicated with FourSquare Venue Search API to obtain a list of venues in the vicinity of given coordinates
+	 * 
+	 * @param lat lattitude (required)
+	 * @param lon longitude (required)
+	 * @return
+	 */
 	@SuppressWarnings("serial")
 	public Places obtainVenues(String lat, String lon) {
-		
-		String lattitude = "40.7";
-		String longitude = "-74";
-		
+		Assert.notNull(lat, "Cannot proceed without lattitude value.");
+		Assert.notNull(lat, "Cannot proceed without longitude value.");
 		RestTemplate restTemplate = new RestTemplate();
 		
 		String venuesSearchUrl = "https://api.foursquare.com/v2/venues/search?ll={lat},{lon}&client_id={ci}&client_secret={cs}&v={v}";
 		
 		Map<String, String> uriVariables = new HashMap<String, String>() {{
-			put("lat", lattitude);
-			put("lon", longitude);
+			put("lat", lat);
+			put("lon", lon);
 			put("ci", clientId);    
 			put("cs", clientSecret);
 			put("v", version);      
