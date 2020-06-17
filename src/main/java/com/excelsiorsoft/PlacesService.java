@@ -26,9 +26,18 @@ public class PlacesService {
 	@Value("${foursquare.venues.query}")
 	private String venuesQuery;
 	
+	@Value("${foursquare.clientId}")
+	private String clientId;
+	
+	@Value("${foursquare.clientSecret}")
+	private String clientSecret;
+	
+	@Value("${foursquare.version}")
+	private String version;
+	
 	public Places obtainVenues() {
 		RestTemplate restTemplate = new RestTemplate();
-		String venuesSearchUrl = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=4VMTK3PJUNCYS2WBR3LHOUIZOVULPA4QI4LQZD0CBV24VF3J&client_secret=B0DUHZAWTG4FKQGQLUGWI2FCXZUT1HF3CPFHM3TU5LLPZB4L&v=20200616";
+		String venuesSearchUrl = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id= {clientId}&client_secret={clientSecret}&v={version}";
 		ResponseEntity<String> response = restTemplate.getForEntity(venuesSearchUrl, String.class);
 		
 		log.debug("FourSquare response body: {}", response.getBody());
