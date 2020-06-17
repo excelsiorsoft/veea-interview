@@ -36,7 +36,7 @@ public class PlacesService {
 //		BuiltinFunctionLoader.getInstance().loadFunctions(Versions.JQ_1_5, rootScope);
 //		rootScope.addFunction(name, q);
 		
-		JqLibrary library = ImmutableJqLibrary.of();
+		//JqLibrary library = ImmutableJqLibrary.of();
 		
 		
 		//List<String> items = Arrays.asList(str.split("\\s*,\\s*"));
