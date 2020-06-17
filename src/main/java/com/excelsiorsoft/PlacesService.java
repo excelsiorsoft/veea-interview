@@ -38,13 +38,18 @@ public class PlacesService {
 	private String version;
 	
 	@SuppressWarnings("serial")
-	public Places obtainVenues() {
+	public Places obtainVenues(String lat, String lon) {
+		
+		String lattitude = "40.7";
+		String longitude = "-74";
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
-		String venuesSearchUrl = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id= {ci}&client_secret={cs}&v={v}";
+		String venuesSearchUrl = "https://api.foursquare.com/v2/venues/search?ll={lat},{lon}&client_id={ci}&client_secret={cs}&v={v}";
 		
 		Map<String, String> uriVariables = new HashMap<String, String>() {{
+			put("lat", lattitude);
+			put("lon", longitude);
 			put("ci", clientId);    
 			put("cs", clientSecret);
 			put("v", version);      

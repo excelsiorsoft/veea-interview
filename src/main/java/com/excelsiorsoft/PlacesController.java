@@ -29,6 +29,8 @@ public class PlacesController {
 		
 	@GetMapping("/places")
 	ResponseEntity<Places> externalPlaces(){
+		String lattitude = "";
+		String longitude = "";
 		return ResponseEntity.ok(placesService.obtainVenues());
 	}
 	
