@@ -1,0 +1,278 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Veea Interview",
+		"_postman_id": "d6ff693b-b7ba-f5e3-4d8c-9aacae0a057c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://veea-interview.herokuapp.com/personages",
+			"request": {
+				"url": "https://veea-interview.herokuapp.com/personages",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://veea-interview.herokuapp.com/personages/personage",
+			"request": {
+				"url": "https://veea-interview.herokuapp.com/personages/personage",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Storcker\",\n        \"lastName\": \"Stork\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"223-543-2104\",\n        \"color\": \"White\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://veea-interview.herokuapp.com/personages",
+			"request": {
+				"url": "https://veea-interview.herokuapp.com/personages",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Donald\",\n        \"lastName\": \"Duck\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"876-543-2104\",\n        \"color\": \"Golden\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://veea-interview.herokuapp.com/places",
+			"request": {
+				"url": {
+					"raw": "https://veea-interview.herokuapp.com/places?lat=40.7&lon=-74",
+					"protocol": "https",
+					"host": [
+						"veea-interview",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"places"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "40.7",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "lon",
+							"value": "-74",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Donald\",\n        \"lastName\": \"Duck\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"876-543-2104\",\n        \"color\": \"Golden\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://veea-interview.herokuapp.com/stats/ext",
+			"request": {
+				"url": "https://veea-interview.herokuapp.com/stats/ext",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Donald\",\n        \"lastName\": \"Duck\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"876-543-2104\",\n        \"color\": \"Golden\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://veea-interview.herokuapp.com/stats",
+			"request": {
+				"url": "https://veea-interview.herokuapp.com/stats",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Donald\",\n        \"lastName\": \"Duck\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"876-543-2104\",\n        \"color\": \"Golden\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Foursquare via OAuth token",
+			"request": {
+				"url": {
+					"raw": "https://api.foursquare.com/v2/venues/search?callback=jQuery17205994316241860156_1592364204609&ll=40.7484,-73.9857&oauth_token=N502N4XLWCHX4HKVOJECT3335FWOX252BHPGCBFJECJ00FUY&v=20200616&_=1592364251848",
+					"protocol": "https",
+					"host": [
+						"api",
+						"foursquare",
+						"com"
+					],
+					"path": [
+						"v2",
+						"venues",
+						"search"
+					],
+					"query": [
+						{
+							"key": "callback",
+							"value": "jQuery17205994316241860156_1592364204609",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "ll",
+							"value": "40.7484,-73.9857",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "oauth_token",
+							"value": "N502N4XLWCHX4HKVOJECT3335FWOX252BHPGCBFJECJ00FUY",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "v",
+							"value": "20200616",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "_",
+							"value": "1592364251848",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Donald\",\n        \"lastName\": \"Duck\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"876-543-2104\",\n        \"color\": \"Golden\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Foursquare Userless",
+			"request": {
+				"url": {
+					"raw": "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=4VMTK3PJUNCYS2WBR3LHOUIZOVULPA4QI4LQZD0CBV24VF3J&client_secret=B0DUHZAWTG4FKQGQLUGWI2FCXZUT1HF3CPFHM3TU5LLPZB4L&v=20200616",
+					"protocol": "https",
+					"host": [
+						"api",
+						"foursquare",
+						"com"
+					],
+					"path": [
+						"v2",
+						"venues",
+						"search"
+					],
+					"query": [
+						{
+							"key": "ll",
+							"value": "40.7,-74",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "v",
+							"value": "20200616",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "client_id",
+							"value": "4VMTK3PJUNCYS2WBR3LHOUIZOVULPA4QI4LQZD0CBV24VF3J",
+							"equals": true
+						},
+						{
+							"key": "client_secret",
+							"value": "B0DUHZAWTG4FKQGQLUGWI2FCXZUT1HF3CPFHM3TU5LLPZB4L",
+							"equals": true
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"firstName\": \"Donald\",\n        \"lastName\": \"Duck\",\n        \"fullName\": null,\n        \"address\": null,\n        \"zipCode\": \"99999\",\n        \"phoneNumber\": \"876-543-2104\",\n        \"color\": \"Golden\"\n    }"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
