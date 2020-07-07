@@ -1,6 +1,6 @@
 Hello.  Thank you for visiting. 
 
-This is the resulting Code Challenge Application as per supplied [requirements](./Veea Coding Challange.pdf).
+This is the resulting Code Challenge Application as per supplied [requirements](https://github.com/excelsiorsoft/veea-interview/blob/master/Veea%20Coding%20Challange.pdf).
 
 The code challenge application is deployed on free version of Heroku at:
 
